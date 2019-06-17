@@ -120,7 +120,6 @@ namespace PathFinder
                         {
                             if (!_storage.Path.Contains(current)) { _storage.Path.Enqueue(current); }
                             _storage.Loop = false;
-                            //MessageBox.Show("DONE!");
                         }
 
                         _storage.OpenSet.Remove(current);
@@ -162,7 +161,6 @@ namespace PathFinder
                     }
                     else
                     {
-                        //MessageBox.Show("No solution!");
                         Console.WriteLine("No solution!");
                         txtNoSolution.Visibility = Visibility.Visible;
                         _storage.Loop = false;
@@ -234,68 +232,10 @@ namespace PathFinder
                             };
                             _storage.Lines.Add(line);
                             mainCanvas.Children.Add(line);
-                            //Console.Write(_storage.Path.ElementAt(i).I + ", " + _storage.Path.ElementAt(i).J + "  ");
                             Console.WriteLine("i = " + i + " | " + line.X1 + ", " + line.Y1 + "   ->    " + line.X2 + ", " + line.Y2 + " | ");
                         }
-
-                        //if (i == _storage.Path.Count - 1)
-                        //{
-                        //    Line line = new Line()
-                        //    {
-                        //        X1 = _storage.Path.ElementAt(i - 1).I * _storage.WidthOfOneSpot + _storage.WidthOfOneSpot / 2,
-                        //        Y1 = _storage.Path.ElementAt(i - 1).J * _storage.HeigthOfOneSpot + _storage.HeigthOfOneSpot / 2,
-                        //        X2 = _storage.Path.ElementAt(i).I * _storage.WidthOfOneSpot + _storage.WidthOfOneSpot / 2,
-                        //        Y2 = _storage.Path.ElementAt(i).J * _storage.HeigthOfOneSpot + _storage.HeigthOfOneSpot / 2,
-                        //        Stroke = Storage.PURPLE,
-                        //        StrokeThickness = _storage.LineThickness,
-                        //        StrokeStartLineCap = PenLineCap.Round,
-                        //        StrokeEndLineCap = PenLineCap.Round
-                        //    };
-                        //    _storage.Lines.Add(line);
-                        //    mainCanvas.Children.Add(line);
-                        //}
                     }
                     Console.WriteLine(); Console.WriteLine();
-
-                    //for (int i = _storage.Path.Count - 1; i > 0; i++)
-                    //{
-                    //    if (i > 0)
-                    //    {
-                    //        Line line = new Line()
-                    //        {
-                    //            X1 = _storage.Path.ElementAt(i).I * _storage.WidthOfOneSpot + _storage.WidthOfOneSpot / 2,
-                    //            Y1 = _storage.Path.ElementAt(i).J * _storage.HeigthOfOneSpot + _storage.HeigthOfOneSpot / 2,
-                    //            X2 = _storage.Path.ElementAt(i - 1).I * _storage.WidthOfOneSpot + _storage.WidthOfOneSpot / 2,
-                    //            Y2 = _storage.Path.ElementAt(i - 1).J * _storage.HeigthOfOneSpot + _storage.HeigthOfOneSpot / 2,
-                    //            Stroke = Storage.PURPLE,
-                    //            StrokeThickness = _storage.LineThickness,
-                    //            StrokeStartLineCap = PenLineCap.Round,
-                    //            StrokeEndLineCap = PenLineCap.Round
-                    //        };
-                    //        //_storage.Lines.Add(line);
-                    //        mainCanvas.Children.Add(line);
-                    //        Console.WriteLine(_storage.Path.ElementAt(i).I + ", " + _storage.Path.ElementAt(i).J);
-                    //    }
-
-                    //    //if (i == _storage.Path.Count - 1)
-                    //    //{
-                    //    //    Line line = new Line()
-                    //    //    {
-                    //    //        X1 = _storage.Path.ElementAt(i - 1).I * _storage.WidthOfOneSpot + _storage.WidthOfOneSpot / 2,
-                    //    //        Y1 = _storage.Path.ElementAt(i - 1).J * _storage.HeigthOfOneSpot + _storage.HeigthOfOneSpot / 2,
-                    //    //        X2 = _storage.Path.ElementAt(i).I * _storage.WidthOfOneSpot + _storage.WidthOfOneSpot / 2,
-                    //    //        Y2 = _storage.Path.ElementAt(i).J * _storage.HeigthOfOneSpot + _storage.HeigthOfOneSpot / 2,
-                    //    //        Stroke = Storage.PURPLE,
-                    //    //        StrokeThickness = _storage.LineThickness,
-                    //    //        StrokeStartLineCap = PenLineCap.Round,
-                    //    //        StrokeEndLineCap = PenLineCap.Round
-                    //    //    };
-                    //    //    _storage.Lines.Add(line);
-                    //    //    mainCanvas.Children.Add(line);
-                    //    //}
-                    //}
-
-
                 }));
             }
         }
@@ -309,7 +249,6 @@ namespace PathFinder
         private int heuritic(Spot neighbor, Spot end)
         {
             return (int)Math.Sqrt(Math.Pow(Math.Abs(end.I - neighbor.I), 2) + Math.Pow(Math.Abs(end.J - neighbor.J), 2));
-            //return Math.Abs(end.I - neighbor.I) + Math.Abs(end.J - neighbor.J);
         }
 
         private void Program_Closing(object sender, CancelEventArgs e)
